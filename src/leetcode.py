@@ -105,7 +105,7 @@ def find_smallest(xs, lo=0, hi=None):
         if midpoint < hi and xs[midpoint] > xs[midpoint + 1]:
             first = midpoint + 1
         else:
-            last = midpoint -1
+            last = midpoint - 1
     return first
 
 
