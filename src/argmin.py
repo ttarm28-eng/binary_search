@@ -92,7 +92,7 @@ def bounded_argmin(f, lo, hi, epsilon=1e-3):
         Each recursive call shrinks the interval to length <= (2/3)*(hi-lo).
         After k calls, length <= (2/3)^k * (hi-lo).
         We stop when length < epsilon, so we set
- 
+
             (2/3)^k * (hi-lo) < epsilon
 
         then solve for k to get
