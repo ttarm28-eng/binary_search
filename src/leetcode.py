@@ -109,7 +109,7 @@ def find_smallest(xs, lo=0, hi=None):
     return first
 
 
-def _firstCount(xs, x):
+def _firstcount(xs, x):
     first = 0
     last = len(xs) - 1
     while first <= last:
@@ -121,7 +121,7 @@ def _firstCount(xs, x):
     return first
 
 
-def _lastCount(xs, x):
+def _lastcount(xs, x):
     first = 0
     last = len(xs) - 1
     while first <= last:
