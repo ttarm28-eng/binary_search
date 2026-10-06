@@ -136,7 +136,7 @@ def find_boundaries(f):
     else:
         you're done; return lo,hi
     '''
-    def go(lo, hi)
+    def go(lo, hi):
         mid = (lo + hi) / 2
         if f(lo) < f(mid):
             return go(lo * 2, hi)
