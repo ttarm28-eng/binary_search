@@ -30,6 +30,17 @@ def find_smallest_positive(xs):
     >>> find_smallest_positive([-3, -2, -1]) is None
     True
     '''
+    first = 0
+    last = len(xs) - 1
+    while first <= last:
+        midpoint = (first + last) // 2
+        if xs[midpoint] <= 0:
+            first = midpoint + 1
+        else:
+            last = midpoint - 1
+    if first == len(xs):
+        return None
+    return first
 
 
 def find_largest_negative(xs, lo=0, hi=None):
@@ -50,6 +61,17 @@ def find_largest_negative(xs, lo=0, hi=None):
     >>> find_largest_negative([-3, -2, -1])
     2
     '''
+    first = 0
+    last = len(xs) - 1
+    while first <= last:
+        midpoint = (first + last) // 2
+        if xs[midpoint] >= 0:
+            last = midpoint - 1
+        else:
+            first = midpoint + 1
+    if last < lo:
+        return None
+    return last
 
 
 def find_smallest(xs, lo=0, hi=None):
@@ -73,6 +95,42 @@ def find_smallest(xs, lo=0, hi=None):
     >>> find_smallest([]) is None
     True
     '''
+    hi = len(xs) - 1
+    if len(xs) == 0:
+        return None
+    first = lo
+    last = hi
+    while first <= last:
+        midpoint = (first + last) // 2
+        if midpoint < hi and xs[midpoint] > xs[midpoint + 1]:
+            first = midpoint + 1
+        else:
+            last = midpoint -1
+    return first
+
+
+def _firstCount(xs, x):
+    first = 0
+    last = len(xs) - 1
+    while first <= last:
+        midpoint = (first + last) // 2
+        if xs[midpoint] > x:
+            first = midpoint + 1
+        else:
+            last = midpoint - 1
+    return first
+
+
+def _lastCount(xs, x):
+    first = 0
+    last = len(xs) - 1
+    while first <= last:
+        midpoint = (first + last) // 2
+        if xs[midpoint] >= x:
+            first = midpoint + 1
+        else:
+            last = midpoint - 1
+    return first
 
 
 def count_repeats(xs, x):
@@ -96,3 +154,4 @@ def count_repeats(xs, x):
     >>> count_repeats([3, 2, 1], 4)
     0
     '''
+    return _lastCount(xs, x) - _firstCount(xs, x)
