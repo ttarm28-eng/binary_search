@@ -154,4 +154,4 @@ def count_repeats(xs, x):
     >>> count_repeats([3, 2, 1], 4)
     0
     '''
-    return _lastCount(xs, x) - _firstCount(xs, x)
+    return _lastcount(xs, x) - _firstcount(xs, x)
